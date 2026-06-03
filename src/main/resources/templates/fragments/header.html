@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<header th:fragment="site-header" class="mb-auto">
+    <div>
+        <h3 class="float-md-start mb-0">Blog</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" th:href="@{/}">Home</a>
+            <a class="nav-link" th:href="@{/blog}">To blog</a>
+            <a class="nav-link" th:href="@{/about}">About us</a>
+        </nav>
+    </div>
+</header>
+
+</body>
+</html>
