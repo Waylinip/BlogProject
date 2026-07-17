@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование карточки</title>
+    <link rel="stylesheet" th:href="@{/card-catalog.css}">
+</head>
+<body>
+
+<header class="drawer-header">
+    <div class="brass-label">
+        <h1 class="site-title">Правка карточки №<span th:text="${post.id}">1</span></h1>
+        <p class="site-subtitle">исправление записи</p>
+    </div>
+    <nav class="drawer-nav">
+        <a href="/">Все карточки</a>
+        <a th:href="@{/posts/{id}(id=${post.id})}">← К карточке</a>
+    </nav>
+</header>
+
+<main class="catalog-container narrow">
+
+    <form class="form-card" th:action="@{/posts/{id}/edit(id=${post.id})}" method="post">
+        <div class="punch-hole"></div>
+        <div class="call-number"><span th:text="${post.category}">CAT</span></div>
+
+        <div class="form-group">
+            <label for="title">Заголовок</label>
+            <input type="text" id="title" name="title" th:value="${post.title}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Текст статьи</label>
+            <textarea id="content" name="content" th:text="${post.content}" required></textarea>
+        </div>
+
+        <div class="form-hint" style="margin-bottom: 18px;">
+            Автор и категория не изменяются на этой форме — контроллер принимает только title и content.
+        </div>
+
+        <button type="submit" class="btn-catalog brass">Сохранить изменения</button>
+    </form>
+
+</main>
+
+</body>
+</html>

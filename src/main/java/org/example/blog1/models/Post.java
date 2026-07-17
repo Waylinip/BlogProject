@@ -1,9 +1,6 @@
 package org.example.blog1.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +21,10 @@ public class Post {
     private int likes;
 
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+
+    @Enumerated(EnumType.STRING)
+     private Category category;
 
 
 }

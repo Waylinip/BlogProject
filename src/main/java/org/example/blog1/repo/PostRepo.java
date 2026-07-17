@@ -1,5 +1,7 @@
 package org.example.blog1.repo;
 
+
+import org.example.blog1.models.Category;
 import org.example.blog1.models.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -25,6 +27,9 @@ public interface PostRepo extends JpaRepository<Post, Long> {
 
     // 6. Проверить, существует ли уже пост с таким заголовком (полезно при создании)
     boolean existsByTitle(String title);
+
+
+    List<Post> findByCategory(Category category);
 
 
 
